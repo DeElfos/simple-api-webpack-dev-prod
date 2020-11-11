@@ -1,0 +1,25 @@
+Vamos instalar o Webpack (atualmente na versão 4) e configurá-lo.
+Precisamos das ferramentas CLI para chamá-lo a partir da linha de comando
+e precisamos webpack-node-externals para ignorar node_modules ao criar a
+construção para o servidor. Se tentarmos construir um servidor Express com
+node_modules , seremos atingidos por uma tonelada de erros.
+
+npm install --save-dev webpack webpack-cli webpack-node-externals
+
+
+E também instalaremos o Babel para transpilar ES6 + para ES5 (o que os navegadores ainda precisam consumir).
+
+npm install --save-dev @babel/core @babel/preset-env babel-loader
+
+
+Se você estiver no Babel 6 e quiser fazer upgrade, execute esta ferramenta bacana de upgrade do babel:
+# npx permite que você execute o babel-upgrade sem instalá-lo localmente. 
+
+npx babel-upgrade --write
+
+
+Também vamos precisar instalar html-loader e html-webpack-plugin para copiar nosso arquivo index.html
+para o diretório dist.
+Este plugin também irá inserir uma tag de script no arquivo HTML que importa o arquivo Javascript principal.
+
+npm install --save-dev html-loader html-webpack-plugin
