@@ -16,15 +16,15 @@ return ({
     },
     target: 'node',
     node: {
-      // Need this when working with express, otherwise the build fails
-      __dirname: false,   // if you don't put this is, __dirname
-      __filename: false,  // and __filename return blank or /
+      // Precisa disso ao trabalhar com express, caso contrário, a compilação falha
+      __dirname: false,   // se você não colocar isto é, __dirname
+      __filename: false,  // e __filename retornam em branco ou "/"
     },
-    externals: [nodeExternals()], // Need this to avoid error when working with Express
+    externals: [nodeExternals()], // É necessário para evitar erros ao trabalhar com o Express
     module: {
       rules: [
         {
-          // Transpiles ES6-8 into ES5
+          // Transpila ES6-8 into ES5
           test: /\.js$/,
           exclude: /node_modules/,
           use: {

@@ -9,6 +9,6 @@ app.get('*', (req, res) => {
 })
 const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {
-    console.log(`App listening to ${PORT}....`)
-    console.log('Press Ctrl+C to quit.')
+    console.log(`Servidor escutando na porta: ${PORT}...`)
+    console.log('Aperte Ctrl+C to para sair.')
 })

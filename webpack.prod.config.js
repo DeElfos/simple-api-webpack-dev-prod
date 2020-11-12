@@ -13,23 +13,23 @@ module.exports = {
     filename: '[name].js'
   },
   target: 'web',
-  devtool: 'source-map',
-  // Webpack 4 does not have a CSS minifier, although
-  // Webpack 5 will likely come with one
+  devtool: 'source-map',  
+  // Webpack 4 não tem um minificador CSS, embora
+  // Webpack 5 provavelmente virá com um
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true // set to true if you want JS source maps
+        sourceMap: true // defina como verdadeiro se desejar mapas de origem JS
       }),
-      new OptimizeCSSAssetsPlugin({})
+      //new OptimizeCSSAssetsPlugin({})
     ]
   },
   module: {
     rules: [
       {
-        // Transpiles ES6-8 into ES5
+        // Transpila ES6-8 into ES5
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -37,8 +37,8 @@ module.exports = {
         }
       },
       {
-        // Loads the javacript into html template provided.
-        // Entry point is set below in HtmlWebPackPlugin in Plugins 
+        // Carrega o javacript no modelo html fornecido.
+        // O ponto de entrada é definido abaixo em HtmlWebPackPlugin em Plugins
         test: /\.html$/,
         use: [
           {
@@ -47,14 +47,14 @@ module.exports = {
           }
         ]
       },
-      {
-        // Loads images into CSS and Javascript files
+      {        
+        // Carrega imagens em arquivos CSS e Javascript
         test: /\.jpg$/,
         use: [{loader: "url-loader"}]
       },
       {
-        // Loads CSS into a file when you import it via Javascript
-        // Rules are set in MiniCssExtractPlugin
+        // Carrega CSS em um arquivo quando você o importa via Javascript
+        // As regras são definidas em MiniCssExtractPlugin
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },

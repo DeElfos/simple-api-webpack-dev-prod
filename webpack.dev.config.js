@@ -21,8 +21,8 @@ module.exports = {
         loader: "babel-loader",
       },
       {
-        // Loads the javacript into html template provided.
-        // Entry point is set below in HtmlWebPackPlugin in Plugins 
+        // Carrega o javacript no modelo html fornecido.
+        // O ponto de entrada é definido abaixo em HtmlWebPackPlugin em Plugins
         test: /\.html$/,
         use: [
           {
